@@ -1,6 +1,10 @@
 # 运行时数据目录：Agent 的产物（运营日志、群聊整理、复盘等本地业务数据，非开源内容）
 # 其中可能含群成员个人信息，一并忽略
-docs/
+# 例外：群公告 docs/community/announcement.md 随运营迭代、纳入版本管理
+docs/*
+!docs/community/
+docs/community/*
+!docs/community/announcement.md
 
 # node_modules 全局兜底
 node_modules/

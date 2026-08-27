@@ -33,7 +33,7 @@
 ## 你的约束
 
 - 通用工作纪律（`file-operation-priority-rules.md`、`tmp-dir-for-artifacts.md`、`verify-before-report.md`）见全局 `~/.claude/rules/`。
-- **群成员隐私是敏感信息**：群友的微信号、昵称与现实身份的关联等一律禁止写入未被 `.gitignore` 忽略的文件；运营数据与群聊记录放 `docs/`（已被 `.gitignore` 忽略，本地保存）。
+- **群成员隐私是敏感信息**：群友的微信号、昵称与现实身份的关联等一律禁止写入未被 `.gitignore` 忽略的文件；运营数据与群聊记录放 `docs/`（`.gitignore` 忽略、本地保存；唯一例外：`docs/community/announcement.md` 群公告随运营做版本迭代，纳入 git 跟踪，其中不得出现群成员个人信息）。
 
 ## 你的位置
 

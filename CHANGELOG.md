@@ -2,6 +2,12 @@
 
 本文件记录本项目（CommunityManagerAgent / Gatsby）每次文件增删改查的变更，写清「为什么改」和「改了什么」。版本号以项目根 `VERSION` 文件为唯一权威（当前 0.1.0）。
 
+## [未发布]
+
+### 变更
+
+- **群公告纳入版本管理**：`.gitignore` 由整目录忽略 `docs/` 改为白名单放行——只放行 `docs/community/announcement.md`，其余 docs 内容（运营日志、群聊整理、复盘等含群成员个人信息的运行时数据）仍忽略。**为什么**：用户裁定群公告后续要做版本迭代（群规与定位随运营演进），需要进 git 跟踪；同步去掉 announcement.md 头部「.gitignore 忽略、本地保存」的过时说明，改为「随运营迭代版本化」。
+
 ## [0.1.0] - 2026-08-25
 
 ### 新增（项目立项：微信社群运营 Agent CommunityManagerAgent）
