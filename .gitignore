@@ -1,10 +1,13 @@
 # 运行时数据目录：Agent 的产物（运营日志、群聊整理、复盘等本地业务数据，非开源内容）
 # 其中可能含群成员个人信息，一并忽略
-# 例外：群公告 docs/community/announcement.md 随运营迭代、纳入版本管理
+# 例外：群公告两文件与承诺层方案文档随运营迭代、纳入版本管理
+# （announcement.md 原文存档底稿 + announcement.txt 发布版 + commitment-layer.md 公开方案，2026-08-28 起承诺层方案随仓库公开）
 docs/*
 !docs/community/
 docs/community/*
 !docs/community/announcement.md
+!docs/community/announcement.txt
+!docs/community/commitment-layer.md
 
 # node_modules 全局兜底
 node_modules/

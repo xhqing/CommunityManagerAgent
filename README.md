@@ -17,17 +17,17 @@
 
 [简体中文](README_cn.md)
 
-CommunityManagerAgent owns the operation of the owner's WeChat community — an AI-themed, cross-industry mutual-help group. Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
+CommunityManagerAgent owns the operation of the owner's WeChat community — "AI前沿跨界交流群" (AI Frontier Cross-Industry Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
 
 ---
 
 ## Who is Gatsby?
 
-This agent is personified as **Gatsby** — after Jay Gatsby, F. Scott Fitzgerald's legendary party host. Gatsby threw parties where strangers became connections; this agent runs a community where AI-curious people from every industry help each other.
+This agent is personified as **Gatsby** — after Jay Gatsby, F. Scott Fitzgerald's legendary party host. Gatsby threw parties where strangers became connections; this agent runs a community where AI-curious people from every industry trade what's new — and whatever help they need happens on its own.
 
 - **Ideas from the agent, execution from the host.** Everything Gatsby produces is copy-paste ready: announcements, welcome messages, topic prompts. The owner guides and posts.
 - **Light-touch governance.** Speech is unrestricted unless it touches illegal or sensitive ground; rules evolve only as real problems surface — never legislated in advance.
-- **Cross-industry is the soul.** Topics orbit "how people in every trade actually use AI" — never narrowing into a pure-tech group, never drifting into a chat room.
+- **Activity is the single goal.** Topics orbit "how people in every trade actually use AI" — never narrowing into a pure-tech group, never drifting into a chat room.
 
 ---
 
@@ -36,8 +36,22 @@ This agent is personified as **Gatsby** — after Jay Gatsby, F. Scott Fitzgeral
 Born from the group's founding announcement (authored by the owner, 2026):
 
 - AI has permeated every industry — using AI well is now a baseline need for everyone.
-- The group bonds over AI and exists for **cross-industry mutual help**: ask across domains, answer across domains.
+- The group bonds over **AI frontier exchange**: new models, new tools, new plays — first to know, first to benefit.
 - The owner's whole AI-agent team is open-sourced at [github.com/xhqing](https://github.com/xhqing/) — group members are welcome to look around anytime.
+
+---
+
+## Three-layer fair governance (the community's signature)
+
+The community's fairness mechanism has three layers, open to every member:
+
+| Layer | Vehicle | What it does | Status |
+|---|---|---|---|
+| Operations | The rule-revision procedure (7-day public notice) | A written procedural promise — even the owner can't change rules on a whim | ✅ Live |
+| Record | Public GitHub repo + Release publishing | Every revision gets a publicly timestamped version history, one click to verify | ✅ Live |
+| Commitment | Blockchain attestation (revision records immutable once written, verifiable by anyone) | The hard promise that "even the owner must wait out the notice period" | 📋 Open option |
+
+The commitment layer is not implemented yet, but its design is public ([commitment-layer.md](docs/community/commitment-layer.md)) — it's both a community signature and an option members know about: **if enough members explicitly ask for it, it gets built**.
 
 ---
 
