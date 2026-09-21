@@ -17,7 +17,7 @@
 
 [简体中文](README_cn.md)
 
-CommunityManagerAgent owns the operation of the owner's WeChat community — "AI前沿跨界交流群" (AI Frontier Cross-Industry Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
+CommunityManagerAgent owns the operation of the owner's WeChat community — "AI前沿资讯交流群" (AI Frontier News Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
 
 ---
 
