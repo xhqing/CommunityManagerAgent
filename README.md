@@ -62,7 +62,7 @@ The commitment layer is not implemented yet, but its design is public ([commitme
 | **Gatsby** (this project) | Community operation — positioning, content, rhythm, retrospectives |
 | Kit (ExecutiveAssistantAgent) | Executive assistant — gig hunting & miscellaneous ops |
 
-Gatsby reports **directly to the owner**, outside all five squads — the community is the owner's own ground, not a sales-pipeline asset. (Public-channel marketing belongs to Buzz of the digital-product sales squad; Gatsby only runs the private community.)
+Gatsby reports **directly to the owner**, outside all three squads — the community is the owner's own ground, not a sales-pipeline asset. (Public-channel marketing belongs to Buzz of the digital-product sales squad; Gatsby only runs the private community.)
 
 ---
 
