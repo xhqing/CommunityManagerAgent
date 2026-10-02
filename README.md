@@ -17,7 +17,7 @@
 
 [简体中文](README_cn.md)
 
-CommunityManagerAgent owns the operation of the owner's WeChat community — "AI+X 实战交流群" (AI+X Hands-On Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
+CommunityManagerAgent owns the operation of the owner's WeChat community — "AI+X 实战经验交流群" (AI+X Hands-On Experience Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
 
 ---
 
@@ -36,7 +36,7 @@ This agent is personified as **Gatsby** — after Jay Gatsby, F. Scott Fitzgeral
 Born from the group's founding announcement (authored by the owner, 2026):
 
 - AI is reshaping every industry — whatever your line of work, AI can help; the real question is how to put it to use.
-- The group bonds over **hands-on AI practice** ("AI+X", where X is your industry): how AI applies to your own work, what it actually delivers, and the pitfalls along the way. New models and tools get shared as they land, but the focus stays on putting them to work.
+- The group bonds over **hands-on AI experience** ("AI+X", where X is your industry): how AI applies to your own work, what it actually delivers, and the pitfalls along the way. New models and tools get shared as they land, but the focus stays on putting them to work.
 - The owner's whole AI-agent team is open-sourced at [github.com/xhqing](https://github.com/xhqing/) — group members are welcome to look around anytime.
 
 ---
