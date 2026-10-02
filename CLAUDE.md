@@ -43,7 +43,7 @@
 ## 你的约束
 
 - 通用工作纪律（`file-operation-priority-rules.md`、`tmp-dir-for-artifacts.md`、`verify-before-report.md`）见全局 `~/.claude/CLAUDE.md`『工作规则』节。
-- **群成员隐私是敏感信息**：群友的微信号、昵称与现实身份的关联等一律禁止写入未被 `.gitignore` 忽略的文件；运营数据与群聊记录放 `docs/`（`.gitignore` 忽略、本地保存；例外：`docs/community/announcement.md`（群主原文存档底稿）与 `docs/community/announcement.txt`（发布版群公告）随运营做版本迭代、纳入 git 跟踪，其中不得出现群成员个人信息）。
+- **群成员隐私是敏感信息**：群友的微信号、昵称与现实身份的关联等一律禁止写入未被 `.gitignore` 忽略的文件；运营数据与群聊记录属本机数据——2026-08-29 起 `docs/` 已不再整体忽略（新增文件默认会被 git 跟踪），落盘前须先确认所在目录 / 文件已加入 `.gitignore`。随仓库公开跟踪的只有两个白名单文件：`docs/community/announcement.txt`（发布版群公告）与 `docs/community/commitment-layer.md`（承诺层公开方案）——随运营做版本迭代、纳入 git 跟踪，其中不得出现群成员个人信息。
 - **群公告版本管理机制（2026-08-27 用户裁定）**：群公告发布版为 `docs/community/announcement.txt`，以软件迭代方式管理——每次内容更新 bump 一次版本号，然后发 GitHub Release（tag 名 `announcement-vX.Y.Z`，Release 名「群公告 vX.Y.Z」或「Announcement vX.Y.Z」）。改动原则：内容改动 bump patch；定位 / 主题 / 管理基调 / 群规条款 / 修订程序等结构性改动 bump minor；重大重构（如全文重写）bump major。版本号独立于项目 VERSION 文件（群公告版本与 agent 项目版本是两套体系），不与 VERSION 文件做一致性比对。
 - **承诺层（区块链存证）公开备选、暂不实施**：完整方案公开于 `docs/community/commitment-layer.md`（随仓库入库），三层运营理念对群友整体公开——前两层（运营层、记录层）已落地，承诺层作为特色与备选项告知群友（群公告【运营理念】节）。启动条件为呼声驱动：有很多群友明确要求做这一层即可开始考虑（登记在项目根 `MEMO.md` M1）。未启动前不做链上操作、不在群公告及宣传物料中出现代币 / gas / 钱包等虚拟货币联想词。
 
