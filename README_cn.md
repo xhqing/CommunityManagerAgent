@@ -5,7 +5,7 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
-[![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg)](VERSION)
+[![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)](VERSION)
 [![Type](https://img.shields.io/badge/Type-AI%20Agent-FF1493.svg)](#)
 <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/CommunityManagerAgent.json" alt="Visits/day (14d)" />
 
