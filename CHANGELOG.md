@@ -4,6 +4,16 @@
 
 ## [1.2.0] - 2026-10-02
 
+### 变更（2026-10-09：新增项目专属 skill `video-editing`——ffmpeg 剪辑 + ChatCut 语义剪辑）
+
+- **为什么做**：用户要求「从 Buzz 那边学视频剪辑相关技能，特别是 ChatCut 的内容，总结成本项目的剪辑 skill」。社群运营会产生视频处理需求（群内分享短视频、给视频加字幕、压缩转码、素材处理），此前没有对应能力；ChatCut（自然语言 AI 视频编辑器）是一条新路线——可全自动驱动（本机 mcporter 直连 MCP）、免费层覆盖纯剪辑 / 字幕 / 导出，值得固化成 skill。
+- **学到什么（来源：Buzz / GrowthMarketerAgent）**：Buzz 的 dtc-ads skill（含 `references/tools.md` 的 ChatCut 调研与免费层实测、`trial-chatcut.md`、`transitions.md` 转场经验、`video-download` 下载经验）+ 2026-10-09 向 Buzz 会话当面请教（工具数 / 参数更新、serve-local-media 与 edit_item 的坑、社群场景建议）。
+- **新增了什么**：`.claude/skills/video-editing/`——① `SKILL.md`（138 行）：两条路线决策表（ffmpeg 精确批量 / ChatCut 语义单条）、微信分享硬规格（H.264+AAC / faststart / 画面≥声音）、通用纪律、成品验收清单、素材下载关键坑；② `references/chatcut.md`（280 行）：ChatCut 完整参考——连接与凭证、八步工作流（项目 / 导入 / 时间线 / 语义剪辑 / 字幕 / 预览 / 导出 / 验收）、61 个工具地图、15 条坑汇总；③ `references/ffmpeg.md`（157 行）：12 组配方（裁剪 / 拼接 / 压缩 / 转码修复 / 字幕 / 时间戳 / 音量 / 倍速 / 画幅）。
+- **验证**：① ffmpeg 12 组命令全部本机实跑通过（造测试视频 → 裁剪 / 拼接 / 压缩 / 转码 / 字幕烧录 / 时间戳归零 / 音量 / 倍速 / 画幅 / 提取音频 → ffprobe 验证产物规格全部 h264+aac）；② ChatCut 链路现场核对——`list_projects` / `create_project` / `read_project` / `delete_project` 实调通过（测试项目已删除清理）、`serve-local-media` 本机服务实跑（打印导入 JSON 正常）、CC 插件 Connected、工具清单现取 61 个；**导入到编辑器 / 语义剪辑效果 / 导出成品三个环节本轮未重跑**（导入要求浏览器开着目标项目），沿用 Buzz 2026-10-04 实测结论；③ description 长度检查通过（483/1024，skill-creator 的 `check_description.py`）。
+- **顺带发现（已写入 skill）**：ChatCut 导入用的临时服务会话须用 `pi-` 前缀命名（如 `pi-chatcut-import`）——pi 的 session-guard 只允许 agent 清理 `pi-` 前缀的 tmux 会话（2026-10-04 用户立规），其他名字创建后清不掉；本次实测被拦截后修正。
+- **边界**：导入本机文件依赖「目标项目在浏览器里开着」（ChatCut 机制使然）；ChatCut 中文转写 / 语义剪辑准确度尚无实测（skill 里已标注「先小样试」）；成片交付层仍以 ffmpeg 为主（帧级精确 + 可重放 + 零成本）。
+- **配套改动**：`CLAUDE.md`「你的工具」节项目专属 skill 列举加 `video-editing` 一行。无需改 README（未列举 skill）。
+
 ### 变更（2026-10-02：新增项目专属 skill `wechat-mac-ops`）
 
 - **为什么做**：当天首次用电脑操作能力（open-computer-use）在微信客户端里完成改群名、发群公告、群内发言三件事，中途踩了几个真坑（弹窗坐标换算不对、click 工具被无障碍路径吞掉、type_text 无效、误触关闭丢编辑）。把经验固化成 skill 避免重踩；用户 2026-10-02 裁定「这是 Gatsby 的专属 skill，放本项目、不放全局」。
