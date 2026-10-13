@@ -1,0 +1,107 @@
+---
+name: wechat-mp
+description: 把 Markdown 文章写进微信公众号草稿箱（含 LaTeX 公式转图、图片上传微信图床、封面生成、版式调优与本地手机宽度预览）。当群主说「把这篇发到公众号」「写进公众号草稿箱」「公众号排版」「推草稿」「生成公众号版本」「这篇文章发公众号」时要使用本 skill，尤其是在文章里含公式 / 图表 / 表格，或需要反复调版式、预览效果时。也用于排查：草稿写入报错（40164 IP 白名单、48001 权限、40007 media_id）、公式在公众号里显示不出来、正文太长提交失败、封面不对。不适用于：微信 Mac 客户端操作（改群名 / 发群消息 → wechat-mac-ops）、公众号「发布 / 群发」动作（个人主体账号无此接口权限，需人工在后台点）。
+---
+
+# wechat-mp — 写公众号文章进草稿箱
+
+## 这个 skill 解决什么
+
+把本机写好的一篇 Markdown（含 LaTeX 公式、图表、表格）转成**微信公众号能正确渲染的正文**，上传图片，写进**草稿箱**；剩下的「发布」由人点。
+
+痛点与对策：
+
+| 痛点 | 对策 |
+|---|---|
+| 公众号不渲染 LaTeX，公式只能贴图 | 展示公式用 KaTeX 无头浏览器渲成透明 PNG；**简单内联公式转 HTML 文本**（`<i>R<sub>W</sub></i>` 这种），省字符也更自然 |
+| 正文图片必须来自微信图床，外链会被过滤 | 所有图片走 `media/uploadimg` 换成 `mmbiz.qpic.cn` URL，再拼进正文 |
+| 排版要手工复制粘贴 | 生成行内样式 HTML，直接进草稿箱 |
+| 版式肉眼难调 | 本地出**手机宽度预览图**（切片），改样式 → 重跑 → 再看，确认后再上传 |
+
+## 账号资质（先确认，否则白干）
+
+- **草稿箱接口**：官方文档「适用范围」标注公众号（原订阅号）与服务号均可调用；但社区有「未认证 / 个人订阅号调 `draft/add` 返回 48001」的实测反馈——**以目标账号实调返回码为准**；
+- **发布 / 群发接口**：官方原文「2025 年 7 月起，个人主体账号、企业主体未认证账号及不支持认证的账号将被回收以上接口的调用权限」；群发接口适用范围写明「仅认证（企业主体已认证账号）」。**个人号只能自动到草稿，发布必须人工**；
+- 结论：本 skill 的交付终点是**草稿箱**。
+
+## 前置条件
+
+1. **凭证**：公众号后台「设置与开发 → 基本配置」拿 AppID / AppSecret，写入 `~/.wechat-mp/config.json`（600 权限、不进 git）：
+   ```bash
+   python3 .claude/skills/wechat-mp/scripts/setup_config.py
+   ```
+2. **IP 白名单**：调用机器的**公网出口 IP** 必须加进后台「基本配置 → IP 白名单」，否则报 `40164`（具体 IP 会写在报错信息里）。注意本机若配了代理（`HTTP_PROXY` 等），出口 IP 会变——脚本默认**绕过代理直连**，保证出口 IP 与白名单一致。
+3. **依赖**：`python3`（Pillow / requests / beautifulsoup4 / markdown-it-py / playwright）、本机 Google Chrome（Playwright 用 `channel="chrome"`）、KaTeX CSS/JS 走 jsDelivr CDN（渲公式时需联网）。
+
+## 标准流程
+
+```bash
+# ① 本地构建 + 预览（不上传、不写草稿）
+python3 .claude/skills/wechat-mp/scripts/build_draft.py <article.md> \
+        --out tmp/mp-draft --preview --no-upload
+#    → content.html（正文）、preview.html / preview-NN.png（手机宽度预览切片）、math/（公式图）
+
+# ② 调版式：改 build_draft.py 顶部的 STYLE 字典 → 重跑 ① → 看切片
+
+# ③ 写进草稿箱（图片上传微信图床 + 封面素材 + draft/add）
+python3 .claude/skills/wechat-mp/scripts/build_draft.py <article.md> --out tmp/mp-draft
+#    → 打印 ✅ media_id；公众号后台「草稿箱」可见
+
+# ④ 群里预览：手机微信 → 公众号 → 草稿箱 → 预览；确认后人工点「群发 / 发布」
+```
+
+常用参数：
+
+| 参数 | 说明 |
+|---|---|
+| `--title` | 覆盖标题（公众号标题 ≤32 字） |
+| `--author` | 作者字段（≤16 字，默认「AI+X 实战经验交流群」） |
+| `--digest` | 摘要（≤120 字，不填默认标题+「。」） |
+| `--cover` | 指定封面图；不传则自动生成 1080×460 封面（`make_cover.py`） |
+| `--inline-math auto\|image` | 内联公式策略：`auto` 简单公式转文字、复杂转图；`image` 全转图 |
+| `--no-upload` / `--no-draft` | 只构建 / 只传图不建草稿 |
+
+## 内容规则（排版）
+
+- **公式**：展示公式（`$$...$$`）一律转图（KaTeX，透明底、3 倍图）；内联公式优先转文本（斜体 + `<sub>/<sup>`），转不了的（分式叠套、`\underbrace`、`\xrightarrow`、过长）自动回落成图片。
+- **图片**：正文插图（图表）保持宽度 100%；公式图按测量宽度写死 `width:Npx;max-width:100%`，保证不变形、窄屏可缩。
+- **表格**：行内样式；`font-size:13.5px`、单元格 `border:1px solid #EFE1C8`、表头底色 `#FDF9F2`（品牌琥珀色系）。表格宽时手机端会自动换行。
+- **风格基线**：正文 16px / 行高 1.8 / 颜色 #3f3f3f；二级标题加左侧琥珀色竖条；引用块用浅琥珀底 + 左侧边；图注居中灰色 13px。改样式只动 `build_draft.py` 的 `STYLE` 字典。
+
+## 限制与坑（实测汇总）
+
+| 项 | 限制 |
+|---|---|
+| 正文 content | 官方文档自相矛盾（写「不超过 2kb」又写「少于 2 万字符、小于 1M」）；**实践按 2 万字符 / 1M 把控**，超了就拆成多篇（`articles[]` 支持多图文）或精简 |
+| 标题 / 作者 / 摘要 | ≤32 / ≤16 / ≤120 字 |
+| 正文图 | jpg/png，<1MB，走 `media/uploadimg`（不占素材配额） |
+| 封面 | 走 `material/add_material` 永久素材，返回 `media_id` 填 `thumb_media_id`（图片素材 ≤10MB） |
+| 外链图片 | 正文里一律被过滤，必须换微信图床 URL |
+| 接口频率 | 草稿相关接口日额度充足（新建草稿 1000/日），正常用不到上限 |
+
+常见错误码与处置：
+
+| 错误码 | 含义 | 处置 |
+|---|---|---|
+| 40164 / 61004 | IP 不在白名单 | 把报错信息里的 IP 加进后台白名单；确认脚本没用代理 |
+| 48001 | api unauthorized | 该账号没有此接口权限（个人 / 未认证账号常见，尤其发布类接口） |
+| 40007 | 无效 media_id | 素材 / 草稿 id 不对或不属于该账号 |
+| 45009 | 调用超限 | 次日重试或后台清零额度 |
+| 53503 | 草稿未通过发布检查 | 发布环节的问题（本 skill 不含发布） |
+
+## 安全与边界
+
+- 凭证只放 `~/.wechat-mp/`，**绝不进仓库**；正文与摘要不得出现群成员隐私、账户号、个人财务信息（写之前按全局「敏感信息禁止入库」条同样标准自查一遍——公众号是公开内容，只会更严）。
+- 本 skill **不做发布 / 群发**：个人主体账号无此权限，发布动作留人工在后台完成（human-in-the-loop）。
+- 走官方接口，不做浏览器自动化绕过（规避封号与协议风险）。
+
+## 文件
+
+```
+scripts/build_draft.py   # 主流程：md → 公众号 HTML → 公式图 → 上传 → 草稿箱
+scripts/math_render.py   # KaTeX + Playwright 渲公式为透明 PNG
+scripts/tex2html.py      # 简单 LaTeX → HTML 文本（省字符、可选中）
+scripts/make_cover.py    # 封面图生成（1080×460，琥珀渐变）
+scripts/wx_api.py        # 微信 API 客户端（stable_token / uploadimg / add_material / draft）
+scripts/setup_config.py  # 写入本机凭证
+```
