@@ -20,6 +20,9 @@ tmp/
 # 产物接力目录（勿公开）
 artifacts/
 
+# 私域文章归档（含个人微信二维码等本机素材，不入 git；2026-10-13 由 tmp/ai-trading-article 迁入，见 CHANGELOG）
+docs/articles/ai-trading/
+
 # Python 缓存
 __pycache__/
 *.pyc
