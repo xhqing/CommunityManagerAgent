@@ -4,6 +4,12 @@
 
 ## [1.2.1] - 2026-10-15
 
+### 变更（2026-10-15：接收子项目 xhs-mentor-scam——由 Kit 移交）
+
+- **为什么改**：2026-10-15 群主决定把小红书「陪跑 / 带教」反诈视频项目（xhs-mentor-scam）移交本项目负责、作为子项目。该项目由 Kit（ExecutiveAssistantAgent）2026-10-13 立案（卧底调查 + 反诈视频制作材料），视频主题落在小红书阵地、最终用途为引流私域社群，发布侧承接与私域运营与本项目职责直接相关。
+- **改了什么**：① 本项目 `CLAUDE.md` 新增「子项目清单」节——登记 xhs-mentor-scam（仓库位置 `~/Developer/xhs-mentor-scam`、私有远程 `xhqing/xhs-mentor-scam`、备份机制与智能体专属文件新规说明）；② 全局注册表 `agents-registry.md`「子项目映射」表同步——该行从 `ExecutiveAssistantAgent（Kit）` 移至本项目（镜像同步记录见 CapabilityManagerAgent CHANGELOG）；③ 移交侧登记：Kit 项目 `CLAUDE.md` 已改记「已移交」说明；④ 本项目侧补记：`TODO.md` 新增 T8（接手首轮推进跟踪）；本条目登记的仓库位置改用 `~/Developer/…` 写法（与全局注册表一致）。
+- **移交边界**：仓库位置与备份机制（`autosave.sh` + launchd 每 5 分钟自动提交推送）保持不变，仅负责方变更；该项目后续工作（如配音录音、视频合成、发布与私域承接方案）由本项目接手推进。
+
 ### 变更（2026-10-15：项目更名 `CommunityManagerAgent` → `SocialMediaManagerAgent`）
 
 - **为什么改**：Gatsby 角色升级为「社媒运营官」（2026-10-14）后，项目名 `CommunityManagerAgent`（含义为「社群运营」）与职责不再匹配，群主 2026-10-15 决定更名为「社媒运营智能体」对应的 `SocialMediaManagerAgent`。
