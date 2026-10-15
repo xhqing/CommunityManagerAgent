@@ -263,7 +263,7 @@ def main() -> None:
     ap.add_argument("article")
     ap.add_argument("--out", default="tmp/mp-draft")
     ap.add_argument("--title", default=None)
-    ap.add_argument("--author", default="AI+X 实战经验交流群")
+    ap.add_argument("--author", default=None, help="作者字段（≤16 字）；默认取凭证配置里的 author")
     ap.add_argument("--digest", default=None)
     ap.add_argument("--cover", default=None, help="封面图；不传则自动生成")
     ap.add_argument("--preview", action="store_true", help="额外产出手机宽度预览图")
@@ -274,6 +274,16 @@ def main() -> None:
     ap.add_argument("--fake-upload", action="store_true",
                     help="用占位 URL 走完整流程（不调接口），用于验证最终 HTML 体积与结构")
     args = ap.parse_args()
+
+    # 从本机凭证配置取默认作者（--author 优先）
+    cfg: dict = {}
+    try:
+        from wx_api import load_config
+
+        cfg = load_config()
+    except Exception:
+        pass
+    author = args.author or cfg.get("author") or "AI+X 实战经验交流群"
 
     art = pathlib.Path(args.article).expanduser().resolve()
     base_dir = art.parent
@@ -338,7 +348,7 @@ def main() -> None:
             print(f"[upload] 跳过上传：{e}")
             upload = False
 
-    article_payload: dict = {"title": title, "author": args.author,
+    article_payload: dict = {"title": title, "author": author,
                              "digest": args.digest or (title + "。"), "content": content_local,
                              "thumb_media_id": None}
     if upload:

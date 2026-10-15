@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import pathlib
 import time
 from typing import Any
@@ -162,12 +163,29 @@ class WxClient:
                           headers={"Content-Type": "application/json; charset=utf-8"})
 
 
+def show_egress_ip() -> None:
+    """打印当前直连出口 IP（配白名单用）。"""
+    s = requests.Session()
+    s.trust_env = False
+    try:
+        r = s.get("https://myip.ipip.net", timeout=10)
+        print("直连出口 IP：", r.text.strip())
+    except Exception as e:
+        print("查询失败：", e)
+
+
 if __name__ == "__main__":
     """自检：取 token → 查草稿总数（只读，不产生任何内容）。
+
+    另：python3 wx_api.py --ip  → 只查当前直连出口 IP（配 IP 白名单用）
 
     用法：python3 wx_api.py
     用途：配置好凭证与 IP 白名单后，先跑这个确认「凭证 + 草稿接口」是否可用。
     """
+    if "--ip" in sys.argv:
+        show_egress_ip()
+        raise SystemExit(0)
+
     try:
         c = WxClient()
         tok = c.token()
