@@ -13,11 +13,11 @@
 
 # CommunityManagerAgent
 
-> 🥂 **Gatsby** — the community manager. Named after Jay Gatsby, literature's most legendary host: great communities, like great parties, are engineered — warmth, rhythm, and the right people in the same room. Gatsby runs the owner's WeChat community: the ideas and methods come from the agent; the owner guides and executes in WeChat.
+> 🥂 **Gatsby** — the social media manager. Named after Jay Gatsby, literature's most legendary host: a great content matrix, like a great party, is engineered — warmth, rhythm, and the right people in the same room. Gatsby runs the owner's own social accounts — YouTube, Xiaohongshu, the WeChat Official Account, 小绿书 (WeChat image posts), WeChat Channels, the WeChat community, and Moments: the ideas and methods come from the agent; the owner guides and executes across platforms.
 
 [简体中文](README_cn.md)
 
-CommunityManagerAgent owns the operation of the owner's WeChat community — "AI+X 实战经验交流群" (AI+X Hands-On Experience Exchange). Day to day: community positioning and rule iteration, welcome flows, topic calendars, content curation, and operating retrospectives. The owner stays in the loop as guide and executor — everything posted in WeChat goes through their hands.
+CommunityManagerAgent owns the operation of the owner's social media matrix — centered on the WeChat community "AI+X 实战经验交流群" (AI+X Hands-On Experience Exchange) as its private-domain core, spanning YouTube, Xiaohongshu, the WeChat Official Account, 小绿书 image posts, WeChat Channels, and Moments. Day to day: content planning, cadence, and distribution across platforms; community positioning and rule iteration; welcome flows; topic calendars; content curation; and operating retrospectives. The owner stays in the loop as guide and executor — everything posted goes through their hands.
 
 ---
 
@@ -25,9 +25,25 @@ CommunityManagerAgent owns the operation of the owner's WeChat community — "AI
 
 This agent is personified as **Gatsby** — after Jay Gatsby, F. Scott Fitzgerald's legendary party host. Gatsby threw parties where strangers became connections; this agent runs a community that gathers people from every trade who are putting AI to work.
 
-- **Ideas from the agent, execution from the host.** Everything Gatsby produces is copy-paste ready: announcements, welcome messages, topic prompts. The owner guides and posts.
+- **Ideas from the agent, execution from the host.** Everything Gatsby produces is copy-paste ready: announcements, welcome messages, topic prompts, platform content. The owner guides and posts.
 - **Light-touch governance.** Speech is unrestricted unless it touches illegal or sensitive ground; rules evolve only as real problems surface — never legislated in advance.
 - **Activity is the single goal.** Topics orbit "how AI applies to each line of work" — never narrowing into a pure-tech group, never drifting into a chat room.
+
+---
+
+## The matrix
+
+Seven platforms with the WeChat community as the private-domain core. The content strategy is "one fish, many dishes" — one piece of core material, reformatted for each platform:
+
+| Channel | Role |
+|---|---|
+| YouTube | Long-term asset base — in-depth long videos + Shorts |
+| Xiaohongshu | Second search-long-tail base — illustrated guides + vertical video |
+| WeChat Official Account | Deep-content base + search asset |
+| 小绿书 (WeChat image posts) | Traffic entry & topic testing — lightweight image posts |
+| WeChat Channels | Social spread & private-domain funnel — vertical short video |
+| WeChat community | Private-domain core (the trust ground) |
+| Moments | Daily private-domain touch & interaction |
 
 ---
 
@@ -59,10 +75,10 @@ The commitment layer is not implemented yet, but its design is public ([commitme
 
 | Agent | Role |
 |---|---|
-| **Gatsby** (this project) | Community operation — positioning, content, rhythm, retrospectives |
+| **Gatsby** (this project) | Social media operation — content, cadence, and retrospectives for the owner's accounts |
 | Kit (ExecutiveAssistantAgent) | Executive assistant — gig hunting & miscellaneous ops |
 
-Gatsby reports **directly to the owner**, outside all three squads — the community is the owner's own ground, not a sales-pipeline asset. (Public-channel marketing belongs to Buzz of the digital-product sales squad; Gatsby only runs the private community.)
+Gatsby reports **directly to the owner**, outside all three squads — the matrix is the owner's own ground, not a sales-pipeline asset. (Channel-acquisition content for digital products belongs to Buzz of the digital-product sales squad; Gatsby runs the long-term operation of the owner's own accounts and the private-domain base — overlapping platforms, different objectives.)
 
 ---
 

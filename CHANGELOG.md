@@ -4,6 +4,19 @@
 
 ## [1.2.0] - 2026-10-02
 
+### 变更（2026-10-15：角色升级为「社媒运营官」——社媒矩阵落地：CLAUDE.md 速查 + 新增 `social-media` skill + README 双语角色更新）
+
+- **为什么做**：群主 2026-10-14 裁定 Gatsby 从「社群运营官」升级为「社媒运营官」——运营范围从微信社群扩展为群主本人的整个社媒账号矩阵（YouTube / 小红书 / 公众号 / 小绿书 / 视频号 / 微信社群 / 朋友圈）；Kit（ExecutiveAssistantAgent）2026-10-14~15 完成平台调研（推荐机制、合规红线、变现数据、搜索长尾），把 10 份素材交接进本项目（原 `tmp/social-ops-handover/`），落地原则：高频内容进 CLAUDE.md、低频内容按 skill-creator 方法论建 skill（渐进加载）。
+- **改了什么**：
+  - **`CLAUDE.md`**：① 头行 /「你是谁」/「你的位置」更新为社媒运营官（范围 = 整个矩阵）；② 新增「你运营的社媒矩阵」节（7 阵地矩阵表 + 一鱼多吃五步 + 投入优先级 + 机制速记）；③ 新增「合规红线与发布前检查」节（导流 / AI 内容 / 金融三条红线 + 7 项发布前检查清单，提炼自素材 01/02）；④ 原「你运营的社群」改题「（矩阵中的私域承接核心）」（正文不变）；⑤ 「你的工作原则」原「你是私域，不是公域」重写为「与 Buzz 的分工」（Buzz = 数字产品销售渠道引流；Gatsby = 群主本人账号长期运营与私域阵地）；⑥ 「你的工具」登记 `social-media` skill。
+  - **新增项目专属 skill `.claude/skills/social-media/`**（遵循 skill-creator 渐进加载方法论）：`SKILL.md`（路由表 + 标准工作流 + 通用心法 + 时效纪律 + 与执行 skill / Buzz 的分工；description 长度检查 453/1024 通过）+ `references/` 7 份平台参考（`youtube.md` / `xiaohongshu.md` / `wechat-mp.md` / `xiaolvshu.md` / `wechat-channel.md` / `private-domains.md` / `cross-platform.md`——素材 03-09 原样迁入，仅换「来源与时效」文件头；04 加「不良记录处理」快查入口、05 加与 `wechat-mp` skill 的分工说明）。
+  - **`README.md` / `README_cn.md`**：角色描述双语同步——头图引言、简介、「运营矩阵」新节（7 阵地定位表）、团队位置节边界重写。
+  - **`TODO.md` / `MEMO.md`**：新增 T7（朋友圈运营实践沉淀——素材未做专门调研、只含框架）；新增 M3（社媒平台规则批量复核——skill 门槛数字与政策条款的定期兜底）。
+  - **素材归档**：`tmp/social-ops-handover/`（10 份）→ `docs/research/social-ops/`（原始快照保留溯源；新增 README.md 说明「已消化去向，本目录勿维护」）。
+- **依据与来源**：Kit 交接说明 `docs/research/social-ops/00-readme.md`；素材调研时点 2026-10-14（官方 / 第三方逐份标注）；skill-creator 方法论（description 常驻 + 正文触发加载 + references 按平台拆分）。
+- **边界**：① 素材中第三方门槛数字（YPP 门槛、流量主门槛、分成比例等）使用前先复查最新版本（已写入 CLAUDE.md 速查与 skill 时效纪律）；② 朋友圈无专门调研、素材只含框架（T7 跟踪）；③ 社群既有体系（公告版本、三层治理）不变；④ 三个执行 skill（`wechat-mp` / `video-editing` / `wechat-mac-ops`）本身不改，被新 skill 引用。
+- **版本处理**：本次为项目本体维护（角色描述 + 新 skill + 文档），按本项目版本机制**不 bump 版本、不发版**（2026-10-09 规则）；`VERSION` 与群公告版本（均 1.2.0）未动。
+
 ### 变更（2026-10-14 ~ 10-15：`wechat-mp` 脚本加固——凭证粘贴清洗、作者读配置、出口 IP 自查）
 
 - **为什么改**：10-14 首次真机联调公众号草稿链路时踩到两件事：① 用户把 AppSecret 粘进 `setup_config.py` 时带进了终端控制序列（`ESC[D`）与重复块，存进配置的值不可用（微信 AppSecret 一般是 32 位十六进制，实际存进去 90 字符）；② 本机出口 IP 与白名单不一致（调用返回 40164，家宽 IP 已漂移），排查时需要一句命令就能看到当前出口 IP。另：作者字段此前写死在脚本里，而配置里已有 `author`（用户已改为「南风AI」）。
