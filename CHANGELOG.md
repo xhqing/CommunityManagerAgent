@@ -1,6 +1,14 @@
 # CHANGELOG
 
-本文件记录本项目（CommunityManagerAgent / Gatsby）每次文件增删改查的变更，写清「为什么改」和「改了什么」。版本号以项目根 `VERSION` 文件为唯一权威（当前 1.2.0，与群公告版本号一致——2026-10-02 起两者统一为一套编号，工具强制）。
+本文件记录本项目（SocialMediaManagerAgent / Gatsby）每次文件增删改查的变更，写清「为什么改」和「改了什么」。版本号以项目根 `VERSION` 文件为唯一权威（当前 1.2.1，与群公告版本号一致——2026-10-02 起两者统一为一套编号，工具强制）。
+
+## [1.2.1] - 2026-10-15
+
+### 变更（2026-10-15：项目更名 `CommunityManagerAgent` → `SocialMediaManagerAgent`）
+
+- **为什么改**：Gatsby 角色升级为「社媒运营官」（2026-10-14）后，项目名 `CommunityManagerAgent`（含义为「社群运营」）与职责不再匹配，群主 2026-10-15 决定更名为「社媒运营智能体」对应的 `SocialMediaManagerAgent`。
+- **改了什么**：① `README.md` / `README_cn.md`——标题、LOGO alt、Visitors 徽章 URL（指向 `traffic/badges/SocialMediaManagerAgent.json`，xhqing 侧采集已同步改名）、正文首句与署名引用的仓库名 / URL；② `CLAUDE.md` 标题行；③ `docs/community/announcement.txt`——文末「历史版本与修订记录」链接更新为新仓库名（公告内容改动）；④ Version 徽章与 `VERSION` 同步 1.2.1；⑤ 本条目。外部改动（GitHub 仓库改名、本地目录改名、全局注册表与镜像、version-guard 注释、pi trust.json、xhqing 主页名册 / traffic / badge）由 Kit 执行。
+- **版本处理**：更名属登记 / 文案类改动，不驱动项目本体发版（2026-10-09 规则）；公告内容更新按公告版本管理机制 bump patch（v1.2.0 → v1.2.1）、`VERSION` 同步 1.2.1，并发布公告 Release（tag `announcement-v1.2.1`）。
 
 ## [1.2.0] - 2026-10-02
 

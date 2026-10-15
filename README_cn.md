@@ -1,23 +1,23 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="CommunityManagerAgent" width="640">
+  <img src="assets/logo.svg" alt="SocialMediaManagerAgent" width="640">
 </div>
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
-[![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)](VERSION)
+[![Version](https://img.shields.io/badge/Version-1.2.1-blue.svg)](VERSION)
 [![Type](https://img.shields.io/badge/Type-AI%20Agent-FF1493.svg)](#)
-<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/CommunityManagerAgent.json" alt="Visits/day (14d)" />
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/SocialMediaManagerAgent.json" alt="Visits/day (14d)" />
 
 </div>
 
-# CommunityManagerAgent
+# SocialMediaManagerAgent
 
 > 🥂 **Gatsby** —— 社媒运营官。名字取自《了不起的盖茨比》的主人公 Jay Gatsby：文学史上最著名的派对主人。好的内容矩阵和好的派对一样，是被「设计」出来的——合适的温度、节奏，和对的人聚在同一个房间。Gatsby 负责运营群主本人的社媒账号矩阵：YouTube、小红书、公众号、小绿书、视频号、微信社群、朋友圈——理念和方法由智能体出，群主引导并在各平台落地执行。
 
 [English](README.md)
 
-CommunityManagerAgent 负责运营群主本人的社媒账号矩阵——以微信社群「AI+X 实战经验交流群」为私域核心，覆盖 YouTube、小红书、公众号、小绿书、视频号与朋友圈。日常工作：各平台内容策划、节奏与分发，社群定位与群规迭代、新人欢迎流程、话题日历、内容整理、运营复盘。群主全程在场，做引导与执行——发出去的每一条内容都经群主之手。
+SocialMediaManagerAgent 负责运营群主本人的社媒账号矩阵——以微信社群「AI+X 实战经验交流群」为私域核心，覆盖 YouTube、小红书、公众号、小绿书、视频号与朋友圈。日常工作：各平台内容策划、节奏与分发，社群定位与群规迭代、新人欢迎流程、话题日历、内容整理、运营复盘。群主全程在场，做引导与执行——发出去的每一条内容都经群主之手。
 
 ---
 
@@ -86,4 +86,4 @@ Gatsby **直属用户**，在团队三个小组之外——社媒矩阵是用户
 
 版权所有 (c) 2026 All Contributors，基于 [MIT License](LICENSE.md) 授权。
 
-**署名要求**：如你基于本项目衍生或再分发，请保留版权声明与许可文件，并注明来源：[CommunityManagerAgent](https://github.com/xhqing/CommunityManagerAgent)。
+**署名要求**：如你基于本项目衍生或再分发，请保留版权声明与许可文件，并注明来源：[SocialMediaManagerAgent](https://github.com/xhqing/SocialMediaManagerAgent)。

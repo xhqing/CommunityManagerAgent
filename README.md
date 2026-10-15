@@ -1,23 +1,23 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="CommunityManagerAgent" width="640">
+  <img src="assets/logo.svg" alt="SocialMediaManagerAgent" width="640">
 </div>
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
-[![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)](VERSION)
+[![Version](https://img.shields.io/badge/Version-1.2.1-blue.svg)](VERSION)
 [![Type](https://img.shields.io/badge/Type-AI%20Agent-FF1493.svg)](#)
-<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/CommunityManagerAgent.json" alt="Visits/day (14d)" />
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/SocialMediaManagerAgent.json" alt="Visits/day (14d)" />
 
 </div>
 
-# CommunityManagerAgent
+# SocialMediaManagerAgent
 
 > 🥂 **Gatsby** — the social media manager. Named after Jay Gatsby, literature's most legendary host: a great content matrix, like a great party, is engineered — warmth, rhythm, and the right people in the same room. Gatsby runs the owner's own social accounts — YouTube, Xiaohongshu, the WeChat Official Account, 小绿书 (WeChat image posts), WeChat Channels, the WeChat community, and Moments: the ideas and methods come from the agent; the owner guides and executes across platforms.
 
 [简体中文](README_cn.md)
 
-CommunityManagerAgent owns the operation of the owner's social media matrix — centered on the WeChat community "AI+X 实战经验交流群" (AI+X Hands-On Experience Exchange) as its private-domain core, spanning YouTube, Xiaohongshu, the WeChat Official Account, 小绿书 image posts, WeChat Channels, and Moments. Day to day: content planning, cadence, and distribution across platforms; community positioning and rule iteration; welcome flows; topic calendars; content curation; and operating retrospectives. The owner stays in the loop as guide and executor — everything posted goes through their hands.
+SocialMediaManagerAgent owns the operation of the owner's social media matrix — centered on the WeChat community "AI+X 实战经验交流群" (AI+X Hands-On Experience Exchange) as its private-domain core, spanning YouTube, Xiaohongshu, the WeChat Official Account, 小绿书 image posts, WeChat Channels, and Moments. Day to day: content planning, cadence, and distribution across platforms; community positioning and rule iteration; welcome flows; topic calendars; content curation; and operating retrospectives. The owner stays in the loop as guide and executor — everything posted goes through their hands.
 
 ---
 
@@ -86,4 +86,4 @@ Gatsby reports **directly to the owner**, outside all three squads — the matri
 
 Copyright (c) 2026 All Contributors. Licensed under the [MIT License](LICENSE.md).
 
-**Attribution:** If you derive from or redistribute this project, please retain the copyright notice and license file, and credit the source: [CommunityManagerAgent](https://github.com/xhqing/CommunityManagerAgent).
+**Attribution:** If you derive from or redistribute this project, please retain the copyright notice and license file, and credit the source: [SocialMediaManagerAgent](https://github.com/xhqing/SocialMediaManagerAgent).
