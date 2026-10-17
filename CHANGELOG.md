@@ -4,6 +4,12 @@
 
 ## [1.2.1] - 2026-10-15
 
+### 变更（2026-10-17：Agent 进驻子项目——新增 `AGENTS.md` 软链、子项目挂 `AGENTS.md` / `.pi` 软链）
+
+- **为什么改**：群主 2026-10-17 修订 Agent 与子项目的关系——由 2026-10-12 的「子项目不得有智能体专属文件」改为「**Agent 进驻子项目**」：智能体专属文件的实体只在 Agent 项目；子项目根目录挂两条相对路径软链接（`AGENTS.md` → `../SocialMediaManagerAgent/AGENTS.md`、`.pi` → `../SocialMediaManagerAgent/.pi`，随仓库提交），在子项目目录开会即即继承 Gatsby 的身份 / 规则 / 技能；后台开启 / 唤醒会话仍只能以 Agent 项目根目录为工作目录（新规见全局 `~/.claude/CLAUDE.md`「团队结构参考」节与 `~/.claude/docs/agents-registry.md`）。Kit 已按新规完成改动，本次核验、提交并记录。
+- **改了什么**：① `AGENTS.md`（新增，软链接 → `CLAUDE.md`）；② `CLAUDE.md`「子项目清单」节措辞更新为 2026-10-17 版规则；③ 子项目 `~/Developer/xhs-mentor-scam` 根目录新增 `AGENTS.md` / `.pi` 软链（已随其仓库入仓）、其 CHANGELOG 同步补记；④ 本条目。
+- **版本处理**：本体维护类改动，不 bump 版本、不发版（2026-10-09 规则）。
+
 ### 变更（2026-10-15：接收子项目 xhs-mentor-scam——由 Kit 移交）
 
 - **为什么改**：2026-10-15 群主决定把小红书「陪跑 / 带教」反诈视频项目（xhs-mentor-scam）移交本项目负责、作为子项目。该项目由 Kit（ExecutiveAssistantAgent）2026-10-13 立案（卧底调查 + 反诈视频制作材料），视频主题落在小红书阵地、最终用途为引流私域社群，发布侧承接与私域运营与本项目职责直接相关。
